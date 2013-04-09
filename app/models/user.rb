@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :name
+  attr_accessible :email, :name, :password, :password_confirmation
+  has_secure_password
 
   before_save { |user| user.email = user.email.downcase  }
 
@@ -7,4 +8,8 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[\w+\-.]+\.[a-z]+\z/i
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   									uniqueness: { case_sensitive: false }
-end									
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
+end
+
+
