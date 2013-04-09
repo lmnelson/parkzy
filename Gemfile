@@ -8,6 +8,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass-rails'
 gem 'paperclip'
 gem 'aws-sdk'
+gem 'bcrypt-ruby', '3.0.1'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
